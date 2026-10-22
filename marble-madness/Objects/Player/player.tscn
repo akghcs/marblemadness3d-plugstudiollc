@@ -59,4 +59,5 @@ current = true
 fov = 110.3
 far = 200.0
 
+[connection signal="ability_collected" from="." to="Marble" method="_on_player_ability_collected"]
 [connection signal="level_finished" from="." to="." method="_on_level_finished"]

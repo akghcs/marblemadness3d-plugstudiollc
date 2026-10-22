@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bc2y4rud5g0am"]
+
+[ext_resource type="PackedScene" uid="uid://bya5op05byb0u" path="res://Art/Meshes/Corkscrew.glb" id="1_0r731"]
+[ext_resource type="Script" uid="uid://hsoud7y2xsiu" path="res://Objects/Abilities/ability_collectable.gd" id="1_ua06g"]
+[ext_resource type="PackedScene" uid="uid://bvbid7d1kgk8f" path="res://Art/Meshes/Propeller.glb" id="2_ua06g"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rmpa7"]
+radius = 0.50719726
+
+[node name="AbilityCollectable" type="Node3D" unique_id=1912001373]
+script = ExtResource("1_ua06g")
+
+[node name="Corkscrew" parent="." unique_id=158973423 instance=ExtResource("1_0r731")]
+
+[node name="Propeller" parent="." unique_id=597694228 instance=ExtResource("2_ua06g")]
+transform = Transform3D(0.459, 0, 0, 0, 0.681, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="CollectionArea" type="Area3D" parent="." unique_id=1412657315]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollectionArea" unique_id=841301576]
+shape = SubResource("SphereShape3D_rmpa7")
+
+[connection signal="body_entered" from="CollectionArea" to="." method="_on_collection_area_body_entered"]

@@ -3,7 +3,7 @@ class_name YouWinScreen
 
 @onready var level_manager: LevelManager = %LevelManager
 @onready var coins_collected_label: Label = %CoinsCollectedLabel
-@export var level_scene : PackedScene 
+
 
 func _ready() -> void:
 	level_manager = get_tree().get_first_node_in_group("level_manager")
@@ -14,11 +14,9 @@ func _on_restart_button_pressed() -> void:
 	pass # Replace with function body.
 
 func _on_continue_button_pressed() -> void:
-	get_tree().change_scene_to_packed(level_scene)
 	pass # Replace with function body.
 	
 func _on_main_menu_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://GUI/main_menu.tscn")
 	pass # Replace with function body.
 
 func _on_level_finished() -> void:

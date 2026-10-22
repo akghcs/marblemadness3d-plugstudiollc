@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dfu5qd1xjljaf" path="res://Objects/LevelManager/level_manager.gd" id="4_cph7v"]
 [ext_resource type="PackedScene" uid="uid://dylr23c5vcn35" path="res://Objects/DeathArea/death_area.tscn" id="4_ugpc4"]
 [ext_resource type="PackedScene" uid="uid://dvgqu7t2hitt4" path="res://Objects/Coin/coin.tscn" id="5_ugpc4"]
+[ext_resource type="PackedScene" uid="uid://bc2y4rud5g0am" path="res://Objects/Abilities/ability_collectable.tscn" id="6_whtlt"]
 [ext_resource type="PackedScene" uid="uid://jxplitg286uo" path="res://GUI/PlayerHUD/player_hud.tscn" id="7_ya8ts"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dbk4j"]
@@ -23,7 +24,7 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_6l8jc"]
 size = Vector3(40.121094, 1.3388672, 38.1709)
 
-[node name="LevelOne" type="Node3D" unique_id=548695403 groups=["level_scene"]]
+[node name="LevelOne" type="Node3D" unique_id=548695403]
 
 [node name="LevelManager" type="Node" parent="." unique_id=1762270756 groups=["level_manager"]]
 unique_name_in_owner = true
@@ -64,6 +65,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.9931335, 0, 0)
 
 [node name="Coin2" parent="Environment/Coins" unique_id=1536969714 instance=ExtResource("5_ugpc4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6994629, 0, 0)
+
+[node name="AbilityContainer" type="Node3D" parent="Environment" unique_id=594356911]
+
+[node name="AbilityCollectable" parent="Environment/AbilityContainer" unique_id=1912001373 instance=ExtResource("6_whtlt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2943573, 0.21413422, 2.8628929)
+ability = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=573637272]
 

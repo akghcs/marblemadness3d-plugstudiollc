@@ -8,6 +8,14 @@ class_name Marble
 
 @onready var camera_3d = $"../Camera/HRotation/VRotation/SpringArm3D/Camera3D"
 
+enum ABILITIES {
+	NONE,
+	SPRING,
+	PROPELLER
+}
+
+var current_ability : ABILITIES = ABILITIES.NONE
+
 var grounded = false
 var can_move = true
 var level_finished = false
@@ -51,3 +59,8 @@ func movement(delta):
 
 func jump():
 	apply_central_impulse(Vector3.UP * jump_power)
+
+
+func _on_player_ability_collected(ability) -> void:
+	current_ability = ability
+	pass # Replace with function body.

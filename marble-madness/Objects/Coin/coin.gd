@@ -11,7 +11,7 @@ var level_manager: LevelManager
 func _ready() -> void:
 	level_manager = get_tree().get_first_node_in_group("level_manager")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	coin_mesh.rotation_degrees.y += spin_rate
 	
 

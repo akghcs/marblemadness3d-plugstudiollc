@@ -14,6 +14,7 @@ var spawn_location : Vector3
 
 func _ready() -> void:
 	max_coins = coins.get_child_count()
+	spawn_location = player.global_position
 
 
 func _on_coin_collected() -> void:
