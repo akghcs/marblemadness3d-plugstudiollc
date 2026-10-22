@@ -3,8 +3,8 @@ class_name CameraContainer
 
 @export_category("Fixed view")
 @export var yaw_degrees : float = 45.0
-@export var pitch_degrees : float = -30.0   # true isometric is about -35.264
-@export var ortho_size : float = 10.0       # smaller = more zoomed in
+@export var pitch_degrees : float = -28
+@export var ortho_size : float = 5.0       # smaller = more zoomed in
 
 @export_category("Follow")
 @export var smooth_camera_tolerance : float = 0.15
