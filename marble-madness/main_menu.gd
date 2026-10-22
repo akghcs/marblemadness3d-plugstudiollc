@@ -2,6 +2,7 @@ extends Control
 class_name main_menu
 @onready var base: Control = $base
 @onready var options_screen: Control = $options_screen
+@onready var level_select: Control = $level_select
 
 
 func _ready() -> void:
@@ -17,7 +18,7 @@ func _process(delta: float) -> void:
 
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://Levels/level_one.tscn")
+	level_select.show()
 	pass # Replace with function body.
 
 
@@ -34,5 +35,11 @@ func _on_quit_pressed() -> void:
 
 func _on_back_pressed() -> void:
 	options_screen.hide()
+	base.show()
+	pass # Replace with function body.
+
+
+func _on_lvl_back_button_pressed() -> void:
+	level_select.hide()
 	base.show()
 	pass # Replace with function body.
