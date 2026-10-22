@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://0184lsqabts5"]
+
+[ext_resource type="Script" uid="uid://dcnm7q6t0l2x2" path="res://main_menu.gd" id="1_kf0uv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x15ge"]
+font_size = 64
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_38be4"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.25490198, 0.12156863, 0.16470589, 0.9490196)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_k0akp"]
+font_size = 50
+
+[node name="main_menu" type="Control" unique_id=1831910658]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kf0uv")
+
+[node name="base" type="Control" parent="." unique_id=855017892]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="base" unique_id=569939136]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 28.825
+anchor_bottom = 16.225
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="title" type="Label" parent="base/MarginContainer" unique_id=455269361]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Marble Madness"
+label_settings = SubResource("LabelSettings_x15ge")
+
+[node name="button_container" type="VBoxContainer" parent="base/MarginContainer" unique_id=1333480490]
+custom_minimum_size = Vector2(420, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="play" type="Button" parent="base/MarginContainer/button_container" unique_id=945367816]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Play"
+
+[node name="options" type="Button" parent="base/MarginContainer/button_container" unique_id=1410096491]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="quit" type="Button" parent="base/MarginContainer/button_container" unique_id=1529097389]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Quit"
+
+[node name="options_screen" type="Control" parent="." unique_id=402337482]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="Panel" parent="options_screen" unique_id=587651535]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 3.775
+anchor_top = 1.0
+anchor_right = 25.725
+anchor_bottom = 14.500001
+offset_top = -9.0
+offset_bottom = -6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_38be4")
+
+[node name="back" type="Button" parent="options_screen/Background" unique_id=681703810]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.039
+anchor_top = 0.040000003
+anchor_right = 0.14600001
+anchor_bottom = 0.15300001
+offset_left = -0.24200058
+offset_top = 0.03999901
+offset_right = -0.1880188
+offset_bottom = 0.0029907227
+text = "Back"
+
+[node name="options_label" type="Label" parent="options_screen/Background" unique_id=1248796246]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -179.0
+offset_top = 36.0
+offset_right = 182.0
+offset_bottom = 82.0
+grow_horizontal = 2
+text = "Options"
+label_settings = SubResource("LabelSettings_k0akp")
+horizontal_alignment = 1
+
+[node name="info" type="Label" parent="options_screen/Background" unique_id=747256006]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -186.0
+offset_top = 192.0
+offset_right = 175.0
+offset_bottom = 261.0
+grow_horizontal = 2
+text = "Placeholder"
+label_settings = SubResource("LabelSettings_k0akp")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="base/MarginContainer/button_container/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="base/MarginContainer/button_container/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="base/MarginContainer/button_container/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="options_screen/Background/back" to="." method="_on_back_pressed"]

@@ -23,7 +23,7 @@ glow_enabled = true
 [sub_resource type="BoxShape3D" id="BoxShape3D_6l8jc"]
 size = Vector3(40.121094, 1.3388672, 38.1709)
 
-[node name="LevelOne" type="Node3D" unique_id=548695403]
+[node name="LevelOne" type="Node3D" unique_id=548695403 groups=["level_scene"]]
 
 [node name="LevelManager" type="Node" parent="." unique_id=1762270756 groups=["level_manager"]]
 unique_name_in_owner = true
