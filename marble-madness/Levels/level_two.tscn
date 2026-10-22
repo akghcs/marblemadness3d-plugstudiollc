@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b7xduifqqdrks"]
+
+[ext_resource type="PackedScene" uid="uid://bsbxtoe0fqdow" path="res://Objects/moving_plat/moving_plat.tscn" id="1_i5oqj"]
+
+[node name="level_two" type="Node3D" unique_id=841054]
+
+[node name="plat_level" type="Node3D" parent="." unique_id=308105777]
+
+[node name="moving_plat" parent="plat_level" unique_id=699303563 instance=ExtResource("1_i5oqj")]
