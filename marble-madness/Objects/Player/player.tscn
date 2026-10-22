@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://c6ncbg8d7nwie"]
+
+[ext_resource type="Script" uid="uid://bfi7nmcsycgh8" path="res://Objects/Player/Marble.gd" id="1_l2ya6"]
+[ext_resource type="Script" uid="uid://dks00cqkyt3ic" path="res://Objects/Player/ground_check.gd" id="1_o1rty"]
+[ext_resource type="Script" uid="uid://02oo433yf8l6" path="res://Objects/Player/player.gd" id="1_t45n6"]
+[ext_resource type="Texture2D" uid="uid://dndhvhrxb2xpn" path="res://icon.svg" id="1_yw17q"]
+[ext_resource type="Script" uid="uid://bwl0kfi7cya4t" path="res://Objects/Player/Camera.gd" id="2_l2ya6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yw17q"]
+bounce = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_t45n6"]
+radius = 0.85098517
+
+[sub_resource type="SphereMesh" id="SphereMesh_rmpa7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2t1d7"]
+albedo_texture = ExtResource("1_yw17q")
+
+[node name="Player" type="Node3D" unique_id=799107387 groups=["player"]]
+script = ExtResource("1_t45n6")
+
+[node name="GroundCheck" type="RayCast3D" parent="." unique_id=1054974005]
+transform = Transform3D(1, 0, 0, 0, 1.7198169, 0, 0, 0, 1, 0, 0, 0)
+target_position = Vector3(0, -0.4, 0)
+script = ExtResource("1_o1rty")
+
+[node name="Marble" type="RigidBody3D" parent="." unique_id=95019319 groups=["player"]]
+collision_layer = 2
+physics_material_override = SubResource("PhysicsMaterial_yw17q")
+gravity_scale = 0.9
+linear_damp = 0.8
+script = ExtResource("1_l2ya6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Marble" unique_id=1622675484]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+shape = SubResource("SphereShape3D_t45n6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Marble" unique_id=1459235138]
+transform = Transform3D(0.8838796, 0, 0, 0, 0.8838796, 0, 0, 0, 0.8838796, 0, 0, 0)
+mesh = SubResource("SphereMesh_rmpa7")
+surface_material_override/0 = SubResource("StandardMaterial3D_2t1d7")
+
+[node name="Camera" type="Node3D" parent="." unique_id=1175835535]
+script = ExtResource("2_l2ya6")
+
+[node name="HRotation" type="Node3D" parent="Camera" unique_id=829584470]
+
+[node name="VRotation" type="Node3D" parent="Camera/HRotation" unique_id=1740294641]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Camera/HRotation/VRotation" unique_id=435095325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+collision_mask = 0
+spring_length = 30.0
+margin = 1.0
+
+[node name="Camera3D" type="Camera3D" parent="Camera/HRotation/VRotation/SpringArm3D" unique_id=1523155825]
+current = true
+fov = 110.3
+far = 200.0
+
+[connection signal="level_finished" from="." to="." method="_on_level_finished"]

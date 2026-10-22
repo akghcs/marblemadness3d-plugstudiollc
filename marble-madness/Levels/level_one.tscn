@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://cfqdwnsqm30hs"]
+
+[ext_resource type="PackedScene" uid="uid://c6ncbg8d7nwie" path="res://Objects/Player/player.tscn" id="1_2b52f"]
+[ext_resource type="PackedScene" uid="uid://d3u60hb1n16s2" path="res://Objects/Objectives/finish_point.tscn" id="2_wi846"]
+[ext_resource type="PackedScene" uid="uid://q6p2il4v1qgn" path="res://GUI/YouWinScreen/control.tscn" id="3_om7uc"]
+[ext_resource type="Script" uid="uid://dfu5qd1xjljaf" path="res://Objects/LevelManager/level_manager.gd" id="4_cph7v"]
+[ext_resource type="PackedScene" uid="uid://dylr23c5vcn35" path="res://Objects/DeathArea/death_area.tscn" id="4_ugpc4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dbk4j"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_2b52f"]
+sky_material = SubResource("ProceduralSkyMaterial_dbk4j")
+
+[sub_resource type="Environment" id="Environment_wi846"]
+background_mode = 2
+sky = SubResource("Sky_2b52f")
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6l8jc"]
+size = Vector3(40.121094, 1.3388672, 38.1709)
+
+[node name="LevelOne" type="Node3D" unique_id=548695403]
+
+[node name="LevelManager" type="Node" parent="." unique_id=1762270756 groups=["level_manager"]]
+unique_name_in_owner = true
+script = ExtResource("4_cph7v")
+
+[node name="Environment" type="Node3D" parent="." unique_id=1124743985]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1200897845]
+environment = SubResource("Environment_wi846")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1736933047]
+transform = Transform3D(0.8660254, -0.43301278, -0.24999999, -0.008996278, -0.5134134, 0.8580943, -0.49991918, -0.7408823, -0.4485246, 1.474297, 2.618417, -2.158093)
+shadow_enabled = true
+
+[node name="Floor" type="CSGBox3D" parent="Environment" unique_id=2048055940]
+transform = Transform3D(22.043966, 0, 0, 0, 0.60638326, 0, 0, 0, 22.043966, 0, 0, 0)
+use_collision = true
+
+[node name="Player" parent="Environment" unique_id=799107387 instance=ExtResource("1_2b52f")]
+unique_name_in_owner = true
+transform = Transform3D(0.27693656, 0, 0, 0, 0.27693656, 0, 0, 0, 0.27693656, 0.0035083294, 0.4309839, 0.040489405)
+
+[node name="FinishPoint" parent="Environment" unique_id=1357303133 instance=ExtResource("2_wi846")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32861328, 1.6640549)
+
+[node name="DeathArea" parent="Environment" unique_id=899741146 instance=ExtResource("4_ugpc4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7597046, 0)
+
+[node name="CollisionShape3D" parent="Environment/DeathArea/Area3D" parent_id_path=PackedInt32Array(899741146, 1337886511) index="0" unique_id=2112416725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6286116, 0)
+shape = SubResource("BoxShape3D_6l8jc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=573637272]
+
+[node name="YouWinScreen" parent="CanvasLayer" unique_id=1839894754 instance=ExtResource("3_om7uc")]
+visible = false
+
+[editable path="Environment/DeathArea"]
