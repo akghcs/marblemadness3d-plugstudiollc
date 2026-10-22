@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bsbxtoe0fqdow"]
+
+[ext_resource type="Script" uid="uid://blg453u7d7783" path="res://moving_plat.gd" id="1_laaha"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x15ge"]
+albedo_color = Color(0.25490198, 1, 0.52156866, 1)
+metallic = 1.0
+metallic_specular = 1.0
+
+[node name="moving_plat" type="AnimatableBody3D" unique_id=699303563]
+script = ExtResource("1_laaha")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1638966618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.052604556)
+use_collision = true
+size = Vector3(3.3134766, 0.33032227, 3.1533203)
+material = SubResource("StandardMaterial3D_x15ge")
+
+[node name="wait" type="Timer" parent="CSGBox3D" unique_id=1202528480]
+wait_time = 3.0
+one_shot = true
+
+[node name="finish" type="Marker3D" parent="." unique_id=1349906443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.030432)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="finish" unique_id=1464256303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -50.306175)
+
+[connection signal="timeout" from="CSGBox3D/wait" to="." method="_on_wait_timeout"]
