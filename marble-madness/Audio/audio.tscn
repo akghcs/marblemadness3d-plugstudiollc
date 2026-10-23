@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cej8nb5cpoldh"]
+
+[ext_resource type="AudioStream" uid="uid://b6km0gqi7r3v8" path="res://Audio/!  space shooter draft 1_1 (1).wav" id="1_1lysu"]
+
+[node name="Audio" type="Node3D" unique_id=352067489]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=926942746]
+stream = ExtResource("1_1lysu")
+autoplay = true
