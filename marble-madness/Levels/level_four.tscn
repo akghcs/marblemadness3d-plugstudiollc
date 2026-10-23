@@ -1,0 +1,306 @@
+[gd_scene format=3 uid="uid://hvlffe3i63ek"]
+
+[ext_resource type="Script" uid="uid://dfu5qd1xjljaf" path="res://Objects/LevelManager/level_manager.gd" id="1_u4l54"]
+[ext_resource type="PackedScene" path="res://Objects/Checkpoint/checkpoint.tscn" id="2_kl6wq"]
+[ext_resource type="PackedScene" uid="uid://c6ncbg8d7nwie" path="res://Objects/Player/player.tscn" id="3_2pk6y"]
+[ext_resource type="PackedScene" uid="uid://d3u60hb1n16s2" path="res://Objects/Objectives/finish_point.tscn" id="4_bqs1g"]
+[ext_resource type="PackedScene" uid="uid://dylr23c5vcn35" path="res://Objects/DeathArea/death_area.tscn" id="5_absjp"]
+[ext_resource type="PackedScene" uid="uid://dvgqu7t2hitt4" path="res://Objects/Coin/coin.tscn" id="6_mnajx"]
+[ext_resource type="PackedScene" uid="uid://bc2y4rud5g0am" path="res://Objects/Abilities/ability_collectable.tscn" id="7_kmqfq"]
+[ext_resource type="PackedScene" uid="uid://q6p2il4v1qgn" path="res://GUI/YouWinScreen/control.tscn" id="8_757ny"]
+[ext_resource type="PackedScene" uid="uid://jxplitg286uo" path="res://GUI/PlayerHUD/player_hud.tscn" id="9_3w6oc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dbk4j"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_2b52f"]
+sky_material = SubResource("ProceduralSkyMaterial_dbk4j")
+
+[sub_resource type="Environment" id="Environment_wi846"]
+background_mode = 2
+sky = SubResource("Sky_2b52f")
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pad"]
+albedo_color = Color(0.78, 0.8, 1, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ramp"]
+albedo_color = Color(0.4, 0.6, 1, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rail"]
+albedo_color = Color(0.25, 0.28, 0.42, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hazard"]
+albedo_color = Color(0.92, 0.32, 0.55, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bridge"]
+albedo_color = Color(1, 0.62, 0.22, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ledge"]
+albedo_color = Color(0.58, 0.42, 0.88, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gap"]
+albedo_color = Color(0.25, 0.8, 0.75, 1)
+roughness = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gold"]
+albedo_color = Color(1, 0.84, 0.3, 1)
+roughness = 0.8
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6l8jc"]
+size = Vector3(200, 2, 120)
+
+[node name="LevelOne" type="Node3D" unique_id=548695403 groups=["level_scene"]]
+
+[node name="LevelManager" type="Node" parent="." unique_id=1762270756 groups=["level_manager"]]
+unique_name_in_owner = true
+script = ExtResource("1_u4l54")
+time_limit = 75.0
+next_level_path = "res://Levels/level_two.tscn"
+
+[node name="Environment" type="Node3D" parent="." unique_id=1124743985]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" unique_id=1200897845]
+environment = SubResource("Environment_wi846")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Environment" unique_id=1736933047]
+transform = Transform3D(0.41906, -0.61034, 0.67221, 0, 0.74036, 0.67221, -0.90796, -0.2817, 0.31025, 0, 10, 0)
+shadow_enabled = true
+
+[node name="Course" type="Node3D" parent="Environment" unique_id=215957853]
+
+[node name="Start_Pad" type="CSGBox3D" parent="Environment/Course" unique_id=2117777817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.6, 0)
+use_collision = true
+size = Vector3(12, 1.2, 12)
+material = SubResource("StandardMaterial3D_pad")
+
+[node name="Ramp_1" type="CSGBox3D" parent="Environment/Course" unique_id=1522600848]
+transform = Transform3D(0, 0.18429, 0.98287, 0, 0.98287, -0.18429, -1, 0, 0, 13.8894, -2.08972, 0)
+use_collision = true
+size = Vector3(6, 1.2, 16.2788)
+material = SubResource("StandardMaterial3D_ramp")
+
+[node name="Ramp_1_RailL" type="CSGBox3D" parent="Environment/Course" unique_id=622898356]
+transform = Transform3D(0, 0.18429, 0.98287, 0, 0.98287, -0.18429, -1, 0, 0, 14.0553, -1.20514, -3.2)
+use_collision = true
+size = Vector3(0.4, 0.6, 16.2788)
+material = SubResource("StandardMaterial3D_rail")
+
+[node name="Ramp_1_RailR" type="CSGBox3D" parent="Environment/Course" unique_id=773848446]
+transform = Transform3D(0, 0.18429, 0.98287, 0, 0.98287, -0.18429, -1, 0, 0, 14.0553, -1.20514, 3.2)
+use_collision = true
+size = Vector3(0.4, 0.6, 16.2788)
+material = SubResource("StandardMaterial3D_rail")
+
+[node name="Pad_1" type="CSGBox3D" parent="Environment/Course" unique_id=1815298427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -3.6, 0)
+use_collision = true
+size = Vector3(8, 1.2, 8)
+material = SubResource("StandardMaterial3D_pad")
+
+[node name="Slalom_Lane" type="CSGBox3D" parent="Environment/Course" unique_id=96320375]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -3.6, 12)
+use_collision = true
+size = Vector3(6, 1.2, 16)
+material = SubResource("StandardMaterial3D_ramp")
+
+[node name="Slalom_Block_A" type="CSGBox3D" parent="Environment/Course" unique_id=340374004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7, -2.5, 8.5)
+use_collision = true
+size = Vector3(3.4, 1, 1.4)
+material = SubResource("StandardMaterial3D_hazard")
+
+[node name="Slalom_Block_B" type="CSGBox3D" parent="Environment/Course" unique_id=1983947966]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.3, -2.5, 13)
+use_collision = true
+size = Vector3(3.4, 1, 1.4)
+material = SubResource("StandardMaterial3D_hazard")
+
+[node name="Slalom_Block_C" type="CSGBox3D" parent="Environment/Course" unique_id=1706704568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.7, -2.5, 17.5)
+use_collision = true
+size = Vector3(3.4, 1, 1.4)
+material = SubResource("StandardMaterial3D_hazard")
+
+[node name="Pad_2" type="CSGBox3D" parent="Environment/Course" unique_id=1090328151]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -3.6, 24)
+use_collision = true
+size = Vector3(8, 1.2, 8)
+material = SubResource("StandardMaterial3D_pad")
+
+[node name="Bridge" type="CSGBox3D" parent="Environment/Course" unique_id=1231219268]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 38, -3.3, 24)
+use_collision = true
+size = Vector3(2.5, 0.6, 16)
+material = SubResource("StandardMaterial3D_bridge")
+
+[node name="Pad_3" type="CSGBox3D" parent="Environment/Course" unique_id=2044646180]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -3.6, 24)
+use_collision = true
+size = Vector3(8, 1.2, 8)
+material = SubResource("StandardMaterial3D_pad")
+
+[node name="Spring_Ledge" type="CSGBox3D" parent="Environment/Course" unique_id=960085287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50, -2.5, 14)
+use_collision = true
+size = Vector3(8, 3.8, 12)
+material = SubResource("StandardMaterial3D_ledge")
+
+[node name="Ramp_2" type="CSGBox3D" parent="Environment/Course" unique_id=453916359]
+transform = Transform3D(0, 0.12752, 0.99184, 0, 0.99184, -0.12752, -1, 0, 0, 60.9235, -2.0951, 14)
+use_collision = true
+size = Vector3(6, 1.2, 14.1152)
+material = SubResource("StandardMaterial3D_ramp")
+
+[node name="Takeoff_Pad" type="CSGBox3D" parent="Environment/Course" unique_id=282238364]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74, -3, 14)
+use_collision = true
+size = Vector3(12, 1.2, 12)
+material = SubResource("StandardMaterial3D_gap")
+
+[node name="Landing_Pad" type="CSGBox3D" parent="Environment/Course" unique_id=458854660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105, -4.6, 14)
+use_collision = true
+size = Vector3(12, 1.2, 12)
+material = SubResource("StandardMaterial3D_gap")
+
+[node name="Ramp_3" type="CSGBox3D" parent="Environment/Course" unique_id=189778634]
+transform = Transform3D(1, 0, 0, 0, 0.98058, -0.19612, 0, 0.19612, 0.98058, 105, -6.58835, 29.8823)
+use_collision = true
+size = Vector3(6, 1.2, 20.3961)
+material = SubResource("StandardMaterial3D_ramp")
+
+[node name="Ramp_3_RailL" type="CSGBox3D" parent="Environment/Course" unique_id=1414955507]
+transform = Transform3D(1, 0, 0, 0, 0.98058, -0.19612, 0, 0.19612, 0.98058, 108.2, -5.70583, 30.0588)
+use_collision = true
+size = Vector3(0.4, 0.6, 20.3961)
+material = SubResource("StandardMaterial3D_rail")
+
+[node name="Ramp_3_RailR" type="CSGBox3D" parent="Environment/Course" unique_id=1013353368]
+transform = Transform3D(1, 0, 0, 0, 0.98058, -0.19612, 0, 0.19612, 0.98058, 101.8, -5.70583, 30.0588)
+use_collision = true
+size = Vector3(0.4, 0.6, 20.3961)
+material = SubResource("StandardMaterial3D_rail")
+
+[node name="Finish_Platform" type="CSGBox3D" parent="Environment/Course" unique_id=1707058459]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105, -8.6, 46)
+use_collision = true
+size = Vector3(12, 1.2, 12)
+material = SubResource("StandardMaterial3D_gold")
+
+[node name="Checkpoints" type="Node3D" parent="Environment" unique_id=407387125]
+
+[node name="Checkpoint_1" parent="Environment/Checkpoints" unique_id=733646006 instance=ExtResource("2_kl6wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, -2.93, 24)
+
+[node name="Checkpoint_2" parent="Environment/Checkpoints" unique_id=805806777 instance=ExtResource("2_kl6wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, -2.93, 24)
+
+[node name="Checkpoint_3" parent="Environment/Checkpoints" unique_id=1940647172 instance=ExtResource("2_kl6wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -2.33, 14)
+
+[node name="Checkpoint_4" parent="Environment/Checkpoints" unique_id=1403741024 instance=ExtResource("2_kl6wq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 103, -3.93, 14)
+
+[node name="Player" parent="Environment" unique_id=799107387 instance=ExtResource("3_2pk6y")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.8, 0)
+
+[node name="CollisionShape3D" parent="Environment/Player/Marble" parent_id_path=PackedInt32Array(799107387, 95019319) index="0" unique_id=1622675484]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.47870177, 0)
+
+[node name="MeshInstance3D" parent="Environment/Player/Marble" parent_id_path=PackedInt32Array(799107387, 95019319) index="1" unique_id=1459235138]
+transform = Transform3D(0.8838796, 0, 0, 0, 0.8838796, 0, 0, 0, 0.8838796, -0.06735277, 0.479528, 0.028337777)
+
+[node name="Camera" parent="Environment/Player" index="2" unique_id=1175835535]
+ortho_size = 18.0
+
+[node name="FinishPoint" parent="Environment" unique_id=1357303133 instance=ExtResource("4_bqs1g")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 105, -8, 46)
+
+[node name="DeathArea" parent="Environment" unique_id=899741146 instance=ExtResource("5_absjp")]
+
+[node name="CollisionShape3D" parent="Environment/DeathArea/Area3D" parent_id_path=PackedInt32Array(899741146, 1337886511) index="0" unique_id=2112416725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52, -12, 22)
+shape = SubResource("BoxShape3D_6l8jc")
+
+[node name="Coins" type="Node3D" parent="Environment" unique_id=886519671]
+unique_name_in_owner = true
+
+[node name="Coin1" parent="Environment/Coins" unique_id=1472824307 instance=ExtResource("6_mnajx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 10, 0.2, 0)
+
+[node name="Coin2" parent="Environment/Coins" unique_id=989402231 instance=ExtResource("6_mnajx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 14, -0.55, 0)
+
+[node name="Coin3" parent="Environment/Coins" unique_id=589573787 instance=ExtResource("6_mnajx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 18, -1.3, 0)
+
+[node name="Coin4" parent="Environment/Coins" unique_id=1904590982 instance=ExtResource("6_mnajx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 27.7, -2.05, 8.5)
+
+[node name="Coin5" parent="Environment/Coins" unique_id=480995652 instance=ExtResource("6_mnajx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 24.3, -2.05, 13)
+
+[node name="Coin6" parent="Environment/Coins" unique_id=1357086531 instance=ExtResource("6_mnajx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 27.7, -2.05, 17.5)
+
+[node name="Coin7" parent="Environment/Coins" unique_id=486913354 instance=ExtResource("6_mnajx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 34, -2.05, 24)
+
+[node name="Coin8" parent="Environment/Coins" unique_id=327195521 instance=ExtResource("6_mnajx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 38, -2.05, 24)
+
+[node name="Coin9" parent="Environment/Coins" unique_id=1307762712 instance=ExtResource("6_mnajx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 42, -2.05, 24)
+
+[node name="Coin10" parent="Environment/Coins" unique_id=170713918 instance=ExtResource("6_mnajx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 50, 0.35, 14)
+
+[node name="Coin11" parent="Environment/Coins" unique_id=337793536 instance=ExtResource("6_mnajx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 85, -0.3, 14)
+
+[node name="Coin12" parent="Environment/Coins" unique_id=1037011557 instance=ExtResource("6_mnajx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 91, 0.1, 14)
+
+[node name="Coin13" parent="Environment/Coins" unique_id=2087582344 instance=ExtResource("6_mnajx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 97, 0.3, 14)
+
+[node name="Coin14" parent="Environment/Coins" unique_id=870155750 instance=ExtResource("6_mnajx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 105, -4.25, 26)
+
+[node name="Coin15" parent="Environment/Coins" unique_id=210282759 instance=ExtResource("6_mnajx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 105, -5.25, 31)
+
+[node name="Coin16" parent="Environment/Coins" unique_id=1289060112 instance=ExtResource("6_mnajx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 105, -6.25, 36)
+
+[node name="AbilityContainer" type="Node3D" parent="Environment" unique_id=594356911]
+
+[node name="Spring_Pickup" parent="Environment/AbilityContainer" unique_id=2114538487 instance=ExtResource("7_kmqfq")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 50, -1.8, 26)
+ability = 1
+
+[node name="Propeller_Pickup" parent="Environment/AbilityContainer" unique_id=161247331 instance=ExtResource("7_kmqfq")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 75, -1.2, 14)
+ability = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=573637272]
+
+[node name="YouWinScreen" parent="CanvasLayer" unique_id=1839894754 instance=ExtResource("8_757ny")]
+visible = false
+
+[node name="PlayerHUD" parent="CanvasLayer" unique_id=20239407 instance=ExtResource("9_3w6oc")]
+
+[connection signal="coin_collected" from="LevelManager" to="LevelManager" method="_on_coin_collected"]
+
+[editable path="Environment/Player"]
+[editable path="Environment/DeathArea"]

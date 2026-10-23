@@ -9,7 +9,7 @@ signal time_changed(time_left : float)
 signal time_up
 
 ## Seconds the player has to finish the level. 0 = no time limit.
-@export var time_limit : float = 60.0
+@export var time_limit : float = 80.0
 ## Scene that the "Continue" button on the win screen loads. Leave empty on the last level.
 @export_file("*.tscn") var next_level_path : String = ""
 
@@ -63,8 +63,8 @@ func set_checkpoint(checkpoint: Node3D) -> void:
 
 
 func respawn_player() -> void:
-	if is_over:
-		return
-	# Deferred: this is usually called from a physics callback.
-	player.marble.respawn.call_deferred(spawn_location)
-	player_respawned.emit()
+	var marble: Marble = player.marble
+	marble.linear_velocity = Vector3.ZERO
+	marble.angular_velocity = Vector3.ZERO
+	marble.global_position = spawn_location
+	
