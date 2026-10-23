@@ -29,6 +29,7 @@ size = Vector3(17.417969, 0.88964844, 174.5939)
 [node name="LevelManager" type="Node" parent="." unique_id=2132498239 groups=["level_manager"]]
 unique_name_in_owner = true
 script = ExtResource("1_knhb2")
+time_limit = 150.0
 
 [node name="plat_level" type="Node3D" parent="." unique_id=308105777]
 

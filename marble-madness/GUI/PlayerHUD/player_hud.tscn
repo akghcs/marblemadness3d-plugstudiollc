@@ -12,6 +12,11 @@ font_size = 32
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 0.8117647)
 
+[sub_resource type="LabelSettings" id="LabelSettings_timer"]
+font_size = 56
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.8117647)
+
 [node name="PlayerHUD" type="Control" unique_id=20239407]
 layout_mode = 3
 anchors_preset = 15
@@ -41,3 +46,17 @@ text = "Current Ability: Spring"
 label_settings = SubResource("LabelSettings_hgfoh")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="TimerLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.0
+offset_top = 20.0
+offset_right = 140.0
+offset_bottom = 90.0
+grow_horizontal = 2
+text = "Time: 60"
+label_settings = SubResource("LabelSettings_timer")
+horizontal_alignment = 1
