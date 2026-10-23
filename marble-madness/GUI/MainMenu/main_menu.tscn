@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://vam8wjh0cag1" path="res://GUI/MainMenu/level_select_button.tscn" id="2_exjve"]
 [ext_resource type="PackedScene" uid="uid://cfqdwnsqm30hs" path="res://Levels/level_one.tscn" id="3_s7n8e"]
 [ext_resource type="PackedScene" uid="uid://b7xduifqqdrks" path="res://Levels/level_two.tscn" id="4_w0c01"]
+[ext_resource type="PackedScene" uid="uid://dikhdh71prid5" path="res://Levels/level_three.tscn" id="5_ub0nq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_x15ge"]
 font_size = 64
@@ -221,6 +222,11 @@ level_scene = ExtResource("3_s7n8e")
 layout_mode = 2
 level_name = "Level 2"
 level_scene = ExtResource("4_w0c01")
+
+[node name="Level_3_button3" parent="level_select/MarginContainer/LvlVBox/backgorund_lvl/MarginContainer/ScrollContainer/VBoxContainer" unique_id=724132855 instance=ExtResource("2_exjve")]
+layout_mode = 2
+level_name = "Level 3"
+level_scene = ExtResource("5_ub0nq")
 
 [connection signal="pressed" from="base/MarginContainer/button_container/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="base/MarginContainer/button_container/options" to="." method="_on_options_pressed"]
