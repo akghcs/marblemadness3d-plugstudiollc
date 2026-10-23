@@ -1,6 +1,6 @@
 extends AnimatableBody3D
 class_name moving_plat
-@export var speed_plat : float = 5.0
+@export var speed_plat : float = 25.0
 @onready var finish: Marker3D = $finish
 @onready var wait: Timer = $CSGBox3D/wait
 
