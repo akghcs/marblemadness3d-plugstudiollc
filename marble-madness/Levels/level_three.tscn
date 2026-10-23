@@ -22,10 +22,80 @@ background_mode = 2
 sky = SubResource("Sky_2b52f")
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yujqa"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5r87"]
+albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6l8jc"]
 size = Vector3(59.237793, 1.3388672, 38.1709)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r8vqi"]
+vertex_color_is_srgb = true
+albedo_color = Color(0.70980394, 0.2784314, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_suib6"]
+vertex_color_is_srgb = true
+albedo_color = Color(0.70980394, 0.2784314, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7c6r0"]
+albedo_color = Color(0.70980394, 0.2784314, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i00tq"]
+albedo_color = Color(0.70980394, 0.2784314, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s2en5"]
+albedo_color = Color(0.70980394, 0.2784314, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihi24"]
+vertex_color_is_srgb = true
+albedo_color = Color(0.14117648, 1, 0.21960784, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oqbxi"]
+albedo_color = Color(1, 0.6039216, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svaqi"]
+albedo_color = Color(1, 0.87058824, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5eo1"]
+albedo_color = Color(0.08235294, 0.8156863, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eh1jn"]
+albedo_color = Color(0.11372549, 0.5137255, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sjsfj"]
+albedo_color = Color(0.50980395, 0.09019608, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqt54"]
+albedo_color = Color(2.1658839e-06, 0.4731115, 0.58052534, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ulq50"]
+albedo_color = Color(1, 0.39607844, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21lly"]
+albedo_color = Color(0.8901961, 0.5137255, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g6cyn"]
+albedo_color = Color(0.63987213, 0.41160735, 0.9948626, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8rsnj"]
+albedo_color = Color(3.3210217e-06, 0.49858153, 0.5272103, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yujqa"]
+albedo_color = Color(0.11372549, 0.5137255, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v4j1f"]
+albedo_color = Color(0.7231553, 9.25073e-05, 0.6028246, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w35t6"]
+albedo_color = Color(0.5563194, 0.0037582417, 0.940131, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mtx6"]
+albedo_color = Color(1, 0, 0.3647059, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nh2wr"]
+albedo_color = Color(1, 0, 0.3647059, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_btkya"]
+albedo_color = Color(0.24988368, 0.29070717, 1, 1)
 
 [node name="LevelThree" type="Node3D" unique_id=548695403 groups=["level_scene"]]
 
@@ -46,7 +116,7 @@ shadow_enabled = true
 transform = Transform3D(22.043127, 0, 0.19236746, 0, 0.60638326, 0, -0.19236745, 0, 22.043129, -8.174, 1, 0.655)
 use_collision = true
 size = Vector3(0.05508423, 1, 0.08062744)
-material = SubResource("StandardMaterial3D_yujqa")
+material = SubResource("StandardMaterial3D_e5r87")
 
 [node name="Player" parent="Environment" unique_id=799107387 instance=ExtResource("2_e5r87")]
 unique_name_in_owner = true
@@ -105,90 +175,97 @@ ability = 2
 transform = Transform3D(22.043966, 0, 0, 0, 0.60621375, -0.52120847, 0, 0.0143373525, 22.037804, -12.228618, 1, 0.6558659)
 use_collision = true
 size = Vector3(0.12963867, 1, 0.015113831)
+material = SubResource("StandardMaterial3D_r8vqi")
 
 [node name="Line2" type="CSGBox3D" parent="Environment/Course" unique_id=1915690201]
 transform = Transform3D(0.47712016, 0, 22.038805, 0, 0.60638314, 0, -22.038805, 0, 0.47712016, -10.988563, 1, 1.7147776)
 use_collision = true
 size = Vector3(0.103881836, 1, 0.015113831)
+material = SubResource("StandardMaterial3D_suib6")
 
 [node name="Line3" type="CSGBox3D" parent="Environment/Course" unique_id=1740568989]
 transform = Transform3D(22.028034, 0, -0.8380381, 0, 0.6063831, 0, 0.8380381, 0, 22.028034, -10.269059, 1, 2.7175965)
 use_collision = true
 size = Vector3(0.05633545, 1, 0.015113831)
+material = SubResource("StandardMaterial3D_7c6r0")
 
 [node name="Line4" type="CSGBox3D" parent="Environment/Course" unique_id=1661692384]
 transform = Transform3D(0.47712016, 0, 22.038805, 0, 0.60638314, 0, -22.038805, 0, 0.47712016, -9.61061, 1, 1.7396628)
 use_collision = true
 size = Vector3(0.10614014, 1, 0.015113831)
+material = SubResource("StandardMaterial3D_i00tq")
 
 [node name="Line5" type="CSGBox3D" parent="Environment/Course" unique_id=998811975]
 transform = Transform3D(22.043966, 0, 0, 0, 0.60638326, 0, 0, 0, 22.043966, -9.2574, 1, 0.6558659)
 use_collision = true
 size = Vector3(0.044128418, 1, 0.015113831)
+material = SubResource("StandardMaterial3D_s2en5")
 
 [node name="Floor" type="CSGBox3D" parent="Environment/Course" unique_id=353834622]
 transform = Transform3D(22.043089, 0.00012793748, 0.19665143, 0, 0.60621375, -0.5212085, -0.19670643, 0.014336784, 22.036928, -14.614, 1, 0.659)
 use_collision = true
 size = Vector3(0.09039307, 1, 0.09350586)
+material = SubResource("StandardMaterial3D_ihi24")
 
 [node name="Floor2" type="CSGBox3D" parent="Environment/Course" unique_id=1288883257]
 transform = Transform3D(22.043127, 0, 0.19236746, 0, 0.60638326, 0, -0.19236745, 0, 22.043129, -7.065951, 1.2090734, 0.19552213)
 use_collision = true
 size = Vector3(0.045936584, 0.3104248, 0.03982544)
-material = SubResource("StandardMaterial3D_yujqa")
+material = SubResource("StandardMaterial3D_oqbxi")
 
 [node name="Floor3" type="CSGBox3D" parent="Environment/Course" unique_id=353792508]
 transform = Transform3D(22.043127, 0, 0.19236746, 0, 0.60638326, 0, -0.19236745, 0, 22.043129, -6.067697, 1.2090734, 1.0328524)
 use_collision = true
 size = Vector3(0.045936584, 0.3104248, 0.03982544)
-material = SubResource("StandardMaterial3D_yujqa")
+material = SubResource("StandardMaterial3D_svaqi")
 
 [node name="Floor4" type="CSGBox3D" parent="Environment/Course" unique_id=1182568]
 transform = Transform3D(22.043127, 0, 0.19236746, 0, 0.60638326, 0, -0.19236745, 0, 22.043129, -5.084439, 1.2090734, 0.19552213)
 use_collision = true
 size = Vector3(0.045936584, 0.3104248, 0.03982544)
-material = SubResource("StandardMaterial3D_yujqa")
+material = SubResource("StandardMaterial3D_v5eo1")
 
 [node name="Floor5" type="CSGBox3D" parent="Environment/Course" unique_id=462436050]
 transform = Transform3D(22.043127, 0, 0.19236746, 0, 0.60638326, 0, -0.19236745, 0, 22.043129, -4.0725765, 1.2090734, 1.0424013)
 use_collision = true
 size = Vector3(0.045936584, 0.3104248, 0.03982544)
-material = SubResource("StandardMaterial3D_yujqa")
+material = SubResource("StandardMaterial3D_eh1jn")
 
 [node name="Floor6" type="CSGBox3D" parent="Environment/Course" unique_id=1930263982]
 transform = Transform3D(22.043127, 0, 0.19236746, 0, 0.60638326, 0, -0.19236745, 0, 22.043129, -3.0783696, 1.2090734, 0.15304077)
 use_collision = true
 size = Vector3(0.045936584, 0.3104248, 0.03982544)
-material = SubResource("StandardMaterial3D_yujqa")
+material = SubResource("StandardMaterial3D_sjsfj")
 
 [node name="Floor7" type="CSGBox3D" parent="Environment/Course" unique_id=83402364]
 transform = Transform3D(22.043127, 0, 0.19236746, 0, 0.60638326, 0, -0.19236745, 0, 22.043129, -3.0257144, 1.1609522, -4.242136)
 use_collision = true
 size = Vector3(0.07179642, 0.3104248, 0.07899475)
-material = SubResource("StandardMaterial3D_yujqa")
+material = SubResource("StandardMaterial3D_rqt54")
 
 [node name="Line6" type="CSGBox3D" parent="Environment/Course" unique_id=533543329]
 transform = Transform3D(-0.18767413, -8.821564e-12, -22.043163, 0.52193666, 0.6062133, -0.0044437363, 22.036985, -0.0143579, -0.18762153, -3.0399406, 1.244513, -1.8529899)
 use_collision = true
 size = Vector3(0.14209509, 0.061401367, 0.0121126175)
+material = SubResource("StandardMaterial3D_ulq50")
 
 [node name="Floor8" type="CSGBox3D" parent="Environment/Course" unique_id=333199013]
 transform = Transform3D(22.043127, 0, 0.19236746, 0, 0.60638326, 0, -0.19236745, 0, 22.043129, -3.0208938, 1.6415713, -5.9968185)
 use_collision = true
 size = Vector3(0.07179642, 1.8309937, 0.028877258)
-material = SubResource("StandardMaterial3D_yujqa")
+material = SubResource("StandardMaterial3D_21lly")
 
 [node name="Floor9" type="CSGBox3D" parent="Environment/Course" unique_id=1366203295]
 transform = Transform3D(22.043127, 0, 0.19236746, 0, 0.60638326, 0, -0.19236745, 0, 22.043129, -3.0208938, 2.653267, -7.1267457)
 use_collision = true
 size = Vector3(0.07179642, 1.8309937, 0.028877258)
-material = SubResource("StandardMaterial3D_yujqa")
+material = SubResource("StandardMaterial3D_g6cyn")
 
 [node name="Floor10" type="CSGBox3D" parent="Environment/Course" unique_id=1066360517]
 transform = Transform3D(22.043127, 0, 0.19236746, 0, 0.60638326, 0, -0.19236745, 0, 22.043129, -3.0208938, 3.7716808, -8.225826)
 use_collision = true
 size = Vector3(0.07179642, 1.8309937, 0.028877258)
-material = SubResource("StandardMaterial3D_yujqa")
+material = SubResource("StandardMaterial3D_8rsnj")
 
 [node name="Floor11" type="CSGBox3D" parent="Environment/Course" unique_id=1902250531]
 transform = Transform3D(22.043127, 0, 0.19236746, 0, 0.60638326, 0, -0.19236745, 0, 22.043129, -3.0208938, 4.885349, -9.308921)
@@ -200,19 +277,19 @@ material = SubResource("StandardMaterial3D_yujqa")
 transform = Transform3D(22.043127, 0, 0.19236746, 0, 0.60638326, 0, -0.19236745, 0, 22.043129, -1.0560259, 5.427145, -9.302592)
 use_collision = true
 size = Vector3(0.0104699135, 0.2353363, 0.009830952)
-material = SubResource("StandardMaterial3D_yujqa")
+material = SubResource("StandardMaterial3D_v4j1f")
 
 [node name="Floor13" type="CSGBox3D" parent="Environment/Course" unique_id=1717965210]
 transform = Transform3D(22.043127, 0, 0.19236746, 0, 0.60638326, 0, -0.19236745, 0, 22.043129, 1.0727278, 5.414707, -9.305035)
 use_collision = true
 size = Vector3(0.11220962, 0.27635956, 0.04495454)
-material = SubResource("StandardMaterial3D_yujqa")
+material = SubResource("StandardMaterial3D_w35t6")
 
 [node name="Floor14" type="CSGBox3D" parent="Environment/Course" unique_id=559289892]
 transform = Transform3D(22.043127, 0, 0.19236746, 0, 0.60638326, 0, -0.19236745, 0, 22.043129, 7.984598, 3.2157779, -9.2440605)
 use_collision = true
 size = Vector3(0.004835278, 7.150634, 0.06506552)
-material = SubResource("StandardMaterial3D_yujqa")
+material = SubResource("StandardMaterial3D_1mtx6")
 
 [node name="Floor15" type="CSGBox3D" parent="Environment/Course" unique_id=1960475095]
 transform = Transform3D(-0.12999603, 0, -22.043589, 0, 0.60638326, 0, 22.043583, 0, -0.129996, 8.433516, 3.2438688, -8.597706)
@@ -224,7 +301,7 @@ material = SubResource("StandardMaterial3D_yujqa")
 transform = Transform3D(22.043127, 0, 0.19236746, 0, 0.60638326, 0, -0.19236745, 0, 22.043129, 8.827846, 3.2298183, -9.252197)
 use_collision = true
 size = Vector3(0.004835278, 7.1043243, 0.060700484)
-material = SubResource("StandardMaterial3D_yujqa")
+material = SubResource("StandardMaterial3D_nh2wr")
 
 [node name="Floor17" type="CSGBox3D" parent="Environment/Course" unique_id=957419492]
 transform = Transform3D(-0.12999603, 0, -22.043589, 0, 0.60638326, 0, 22.043583, 0, -0.129996, 8.400455, 3.2262893, -9.920715)
@@ -236,7 +313,7 @@ material = SubResource("StandardMaterial3D_yujqa")
 transform = Transform3D(22.043127, 0, 0.19236746, 0, 0.60638326, 0, -0.19236745, 0, 22.043129, 8.31212, 0.26848996, -9.333988)
 use_collision = true
 size = Vector3(0.07179642, 0.3104248, 0.07899475)
-material = SubResource("StandardMaterial3D_yujqa")
+material = SubResource("StandardMaterial3D_btkya")
 
 [node name="Checkpoints" type="Node3D" parent="Environment" unique_id=422458187]
 
