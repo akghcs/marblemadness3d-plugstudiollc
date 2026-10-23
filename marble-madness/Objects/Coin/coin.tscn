@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://buod8qs4irdxp" path="res://Art/Meshes/Coin.glb" id="1_kvih2"]
 [ext_resource type="Script" uid="uid://n8237ck1vq5s" path="res://Objects/Coin/coin.gd" id="1_n5yp1"]
+[ext_resource type="AudioStream" uid="uid://dseckudo2eqxf" path="res://Audio/coin.mp3" id="3_nm3wv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rmpa7"]
 size = Vector3(0.18389893, 0.25872803, 0.088012695)
@@ -17,5 +18,9 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=672017946]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02468872, 0.032806396, -0.0028686523)
 shape = SubResource("BoxShape3D_rmpa7")
+
+[node name="CoinSound" type="AudioStreamPlayer" parent="." unique_id=561968970]
+stream = ExtResource("3_nm3wv")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
