@@ -127,19 +127,51 @@ text = "Options"
 label_settings = SubResource("LabelSettings_k0akp")
 horizontal_alignment = 1
 
-[node name="info" type="Label" parent="options_screen/Background" unique_id=747256006]
+[node name="VolumeBox" type="VBoxContainer" parent="options_screen/Background" unique_id=1610630960]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -186.0
-offset_top = 192.0
-offset_right = 175.0
-offset_bottom = 261.0
+anchor_bottom = 0.5
+offset_left = -58.5
+offset_top = -38.0
+offset_right = 58.5
+offset_bottom = 38.0
 grow_horizontal = 2
-text = "Placeholder"
-label_settings = SubResource("LabelSettings_k0akp")
-horizontal_alignment = 1
+grow_vertical = 2
+
+[node name="MusicRow" type="HBoxContainer" parent="options_screen/Background/VolumeBox" unique_id=1624583510]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="options_screen/Background/VolumeBox/MusicRow" unique_id=202157329]
+layout_mode = 2
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="options_screen/Background/VolumeBox/MusicRow" unique_id=2109549751]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.1
+
+[node name="SFXRow" type="HBoxContainer" parent="options_screen/Background/VolumeBox" unique_id=1370681412]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="options_screen/Background/VolumeBox/SFXRow" unique_id=2018447201]
+layout_mode = 2
+text = "Sound Effects
+"
+
+[node name="SFXSlider" type="HSlider" parent="options_screen/Background/VolumeBox/SFXRow" unique_id=1393108320]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.1
 
 [node name="level_select" type="Control" parent="." unique_id=1984570736]
 visible = false

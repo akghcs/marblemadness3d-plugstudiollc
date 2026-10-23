@@ -4,6 +4,7 @@
 
 [node name="Audio" type="Node3D" unique_id=352067489]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=926942746]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="." unique_id=2098197563]
 stream = ExtResource("1_1lysu")
 autoplay = true
+bus = &"Music"
