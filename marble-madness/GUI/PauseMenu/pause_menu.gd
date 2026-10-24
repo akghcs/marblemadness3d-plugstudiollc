@@ -1,0 +1,28 @@
+extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_resume_button_pressed() -> void:
+	hide()
+	get_tree().paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+func _on_restart_button_pressed() -> void:
+	get_tree().reload_current_scene()
+	pass # Replace with function body.
+
+
+func _on_main_menu_button_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://GUI/MainMenu/main_menu.tscn")
+	pass # Replace with function body.

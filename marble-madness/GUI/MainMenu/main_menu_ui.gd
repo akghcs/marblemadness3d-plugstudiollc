@@ -13,7 +13,7 @@ func _ready() -> void:
 	sfx_slider.value = AudioSettings.sfx_volume
 	music_slider.value_changed.connect(AudioSettings.set_music_volume)
 	sfx_slider.value_changed.connect(AudioSettings.set_sfx_volume)
-
+	get_tree().paused = false
 
 # Only one of the three menu pages is visible at a time.
 func _show_only(panel: Control) -> void:

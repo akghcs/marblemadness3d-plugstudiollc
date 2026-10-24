@@ -13,6 +13,9 @@ signal time_up
 ## Scene that the "Continue" button on the win screen loads. Leave empty on the last level.
 @export_file("*.tscn") var next_level_path : String = ""
 
+@onready var pause_menu: Control = $"../CanvasLayer/pause_menu"
+
+
 var coins_collected : int = 0
 var max_coins : int
 
@@ -31,6 +34,7 @@ func _ready() -> void:
 	spawn_location = player.global_position
 	time_left = time_limit
 	level_finished.connect(_on_level_finished)
+	get_tree().paused = false
 
 
 func _process(delta: float) -> void:
@@ -67,4 +71,12 @@ func respawn_player() -> void:
 	marble.linear_velocity = Vector3.ZERO
 	marble.angular_velocity = Vector3.ZERO
 	marble.global_position = spawn_location
+	
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause menu"):
+		pause_menu.show()
+		get_tree().paused = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	

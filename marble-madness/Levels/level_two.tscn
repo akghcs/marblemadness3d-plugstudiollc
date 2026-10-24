@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dvgqu7t2hitt4" path="res://Objects/Coin/coin.tscn" id="5_5ngw8"]
 [ext_resource type="PackedScene" uid="uid://q6p2il4v1qgn" path="res://GUI/YouWinScreen/control.tscn" id="6_onrut"]
 [ext_resource type="PackedScene" uid="uid://jxplitg286uo" path="res://GUI/PlayerHUD/player_hud.tscn" id="7_xbbx0"]
+[ext_resource type="PackedScene" uid="uid://bo2aiosytejm3" path="res://GUI/PauseMenu/pause_menu.tscn" id="8_fw6be"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kiou0"]
 albedo_color = Color(0.2784314, 1, 1, 1)
@@ -175,6 +176,9 @@ visible = false
 
 [node name="PlayerHUD" parent="CanvasLayer" unique_id=20239407 instance=ExtResource("7_xbbx0")]
 
+[node name="pause_menu" parent="CanvasLayer" unique_id=384840849 instance=ExtResource("8_fw6be")]
+visible = false
+
 [node name="Coins" type="Node3D" parent="." unique_id=429436675]
 unique_name_in_owner = true
 
@@ -185,6 +189,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034533262, 1.1471596, -10.8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09464228, 2.2046413, -97.281906)
 
 [connection signal="coin_collected" from="LevelManager" to="LevelManager" method="_on_coin_collected"]
+[connection signal="gui_input" from="CanvasLayer/pause_menu" to="LevelManager" method="_on_pause_menu_gui_input"]
 
 [editable path="plat_level/moving_plat"]
 [editable path="plat_level/Player"]

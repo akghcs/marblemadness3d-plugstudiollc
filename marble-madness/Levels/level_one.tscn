@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bc2y4rud5g0am" path="res://Objects/Abilities/ability_collectable.tscn" id="6_whtlt"]
 [ext_resource type="PackedScene" uid="uid://jxplitg286uo" path="res://GUI/PlayerHUD/player_hud.tscn" id="7_ya8ts"]
 [ext_resource type="PackedScene" path="res://Objects/Checkpoint/checkpoint.tscn" id="8_chkpt"]
+[ext_resource type="PackedScene" uid="uid://bo2aiosytejm3" path="res://GUI/PauseMenu/pause_menu.tscn" id="10_kmyb2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dbk4j"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -296,6 +297,9 @@ ability = 2
 visible = false
 
 [node name="PlayerHUD" parent="CanvasLayer" unique_id=20239407 instance=ExtResource("7_ya8ts")]
+
+[node name="pause_menu" parent="CanvasLayer" unique_id=384840849 instance=ExtResource("10_kmyb2")]
+visible = false
 
 [connection signal="coin_collected" from="LevelManager" to="LevelManager" method="_on_coin_collected"]
 

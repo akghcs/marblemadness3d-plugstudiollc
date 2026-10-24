@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" path="res://Objects/Checkpoint/checkpoint.tscn" id="7_e5r87"]
 [ext_resource type="PackedScene" uid="uid://q6p2il4v1qgn" path="res://GUI/YouWinScreen/control.tscn" id="7_sjsfj"]
 [ext_resource type="PackedScene" uid="uid://jxplitg286uo" path="res://GUI/PlayerHUD/player_hud.tscn" id="8_rqt54"]
+[ext_resource type="PackedScene" uid="uid://bo2aiosytejm3" path="res://GUI/PauseMenu/pause_menu.tscn" id="10_oqbxi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dbk4j"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -332,6 +333,9 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.28333902, 5.513447
 visible = false
 
 [node name="PlayerHUD" parent="CanvasLayer" unique_id=20239407 instance=ExtResource("8_rqt54")]
+
+[node name="pause_menu" parent="CanvasLayer" unique_id=384840849 instance=ExtResource("10_oqbxi")]
+visible = false
 
 [connection signal="coin_collected" from="LevelManager" to="LevelManager" method="_on_coin_collected"]
 
