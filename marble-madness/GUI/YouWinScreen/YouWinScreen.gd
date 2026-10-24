@@ -21,11 +21,12 @@ func _on_restart_button_pressed() -> void:
 
 
 func _on_continue_button_pressed() -> void:
+	get_tree().change_scene_to_packed(level_scene)
 	# No next level set on this level: go back to the menu.
-	if level_manager.next_level_path.is_empty():
-		get_tree().change_scene_to_file("res://GUI/MainMenu/main_menu.tscn")
-	else:
-		get_tree().change_scene_to_file(level_manager.next_level_path)
+	#if level_manager.next_level_path.is_empty():
+		#get_tree().change_scene_to_file("res://GUI/MainMenu/main_menu.tscn")
+	#else:
+		#get_tree().change_scene_to_file(level_manager.next_level_path)
 
 
 func _on_main_menu_button_pressed() -> void:
@@ -33,12 +34,13 @@ func _on_main_menu_button_pressed() -> void:
 
 
 func _on_level_finished() -> void:
+	if level_scene == null:
+		continue_button.hide() 
 	title_label.text = "You Win"
-	continue_button.visible = not level_manager.next_level_path.is_empty()
 	time_label.visible = level_manager.time_limit > 0.0
 	time_label.text = "Time left: %.1f s" % level_manager.time_left
 	_show_screen()
-
+	print(level_scene)
 
 func _on_time_up() -> void:
 	title_label.text = "Time's Up!"

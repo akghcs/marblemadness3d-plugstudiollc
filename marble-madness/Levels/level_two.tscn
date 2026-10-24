@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d3u60hb1n16s2" path="res://Objects/Objectives/finish_point.tscn" id="3_fw6be"]
 [ext_resource type="PackedScene" uid="uid://dvgqu7t2hitt4" path="res://Objects/Coin/coin.tscn" id="5_5ngw8"]
 [ext_resource type="PackedScene" uid="uid://q6p2il4v1qgn" path="res://GUI/YouWinScreen/control.tscn" id="6_onrut"]
+[ext_resource type="PackedScene" uid="uid://dikhdh71prid5" path="res://Levels/level_three.tscn" id="7_lvawp"]
 [ext_resource type="PackedScene" uid="uid://jxplitg286uo" path="res://GUI/PlayerHUD/player_hud.tscn" id="7_xbbx0"]
 [ext_resource type="PackedScene" uid="uid://bo2aiosytejm3" path="res://GUI/PauseMenu/pause_menu.tscn" id="8_fw6be"]
 
@@ -173,6 +174,7 @@ shape = SubResource("BoxShape3D_7muxv")
 
 [node name="YouWinScreen" parent="CanvasLayer" unique_id=1839894754 instance=ExtResource("6_onrut")]
 visible = false
+level_scene = ExtResource("7_lvawp")
 
 [node name="PlayerHUD" parent="CanvasLayer" unique_id=20239407 instance=ExtResource("7_xbbx0")]
 
